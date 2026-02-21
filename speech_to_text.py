@@ -1,5 +1,7 @@
 import speech_recognition as sr
 
+__all__ = ["speech_to_text"]
+
 def speech_to_text():
     """
     Capture audio from microphone and convert to text.
@@ -30,9 +32,8 @@ def speech_to_text():
         except sr.RequestError as e:
             print(f"Error connecting to the speech recognition service: {e}")
             return None
-        except sr.Timeout:
+        except sr.WaitTimeoutError:
             print("Listening timed out. Please try again.")
             return None
-
 if __name__ == "__main__":
-    speech_to_text()
+    print("Run main.py instead. This module provides `speech_to_text()`.")
